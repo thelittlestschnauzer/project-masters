@@ -29,7 +29,7 @@ ul {
 // Variables
 
 $generic-box-shadow: rgba(0,0,0,0.1) 0px 0px 0px 1px, rgba(0,0,0,0.1) 0px 0px 0px 11px;
-$generic-border: 1px solid #f1f1f1;
+$generic-border: 1px solid #cacaca;
 $generic-bg: #6079af;
 
 @mixin box-overlay() {
@@ -63,7 +63,7 @@ $generic-bg: #6079af;
 
 @mixin btn($width) {
   width: $width;
-  background-color: $generic-bg;
+  background-color: #EC2049;
   color: #fff !important;
   border: 1px solid transparent;
   margin-right: 5px;
@@ -127,7 +127,7 @@ $generic-bg: #6079af;
 // header 
 
 header {
-  border-bottom: solid 1px #6079af;
+  border-bottom: solid 1px #fafafa;
   background-color: $generic-bg;
   transition: height 200ms ease-in;
   box-shadow: 0 1px 2px rgba(0,0,0,0.15);
@@ -159,29 +159,31 @@ header {
     div {
       &.logo {
         padding-left: 10px;
-        grid-area: 1/1;
+        grid-area: 1 / 1;
         font-size: 28px;
       }
     }
-    .settings {
-      grid-area: 1/2;
-      text-align: right;
-      ul {
-        float: right;
-      
-     li {
-        @include va;
+      .settings {
+        grid-area: 1/2;
+        text-align: right;
 
-        list-style-type: none;
-        cursor: pointer;
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        vertical-align: middle;
-        float: left;
+        ul {
+          float: right;
+      
+         li {
+          @include va;
+
+          list-style-type: none;
+          cursor: pointer;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          vertical-align: middle;
+          float: left;
          
           span {
             margin-right: 10px;
+            
             &:hover {
               color: #333;
               border-radius: 3px;
@@ -189,7 +191,7 @@ header {
           }
 
           &.settings__add {
-            margin-right: 15px;
+            margin-right: 20px;
             font-size: 25px;
           }
 
@@ -198,14 +200,15 @@ header {
             height: 30px;
           }
         }
-
       }
     }
   }
 }
 
 
+
 // sidebar styles
+
 .sidebar {
   @include no-select();
   width: 260px;
@@ -214,125 +217,149 @@ header {
   position: fixed;
   overlay-x: hidden;
   overlay-y: hidden;
-  border-right: $generic-bg;
+  border-right: 1px solid $generic-bg;
   background-color: #fafafa;
 
   @include mq('900px') {
     display: none;
   }
+
   li {
-    padding-left: 10px;
-    padding-right: 15px;
-
-    &:hover .side__project-delete {
-      display: block; 
-    }
-  }
-
-    &__project {
-      padding: 5px 0;
-      cursor: pointer;
-
-      &-delete {
-        margin-left: auto;
-        display: none;
-
-        svg {
-          color: #cacaca;
-        }
-
-        &.active, &.hover {
-          font-weight: bold;
-          background-color: #fff;
-        }
-
-        &:nth-child(1) {
-          .sidebar__dot {
-            color: #EC2049;
-          }
-        }
-        &:nth-child(2) {
-          .sidebar__dot {
-            color: #F7DB4F;
-          }
-        }
-        &:nth-child(3) {
-          .sidebar__dot {
-            color: #F26B38;
-          }
-        }
-        &:nth-child(4) {
-          .sidebar__dot {
-            color: #2F9599;
-          }
-        }
-        &:nth-child(5) {
-          .sidebar__dot {
-            color: #A7226E;
-          }
-        }
-      }
-    &__projects {
-      padding-left: 3px;
-    }
-
-    &__project {
-      @include va('left');
-    }
-
-    &__dot {
-      margin-right: 10px;
-      font-size: 30px;
-    }
-
-    &__middle {
-      margin-top: 20px;
-      margin-bottom: 20px;
+    &.hover .sidebar__project-delete {
       display: flex;
-      border-bottom: $generic-border;
+    }
+  }
+
+  &__project {
+    cursor: pointer;
+
+    div:nth-child(1) {
+      padding: 5px 0;
       padding-left: 10px;
-      cursor: pointer;
+      padding-right: 15px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
 
-      span {
-      color: #000;
+    &-delete {
+      margin-left: auto;
+      display: none;
+
+      svg {
+        color: #cacaca;
+      }
+    }
+
+    &.active, &.hover {
+      font-weight: bold;
+      background-color: #fff;
+    }
+
+    &:nth-child(1) {
+      .sidebar__dot {
+        color: #EC2049;
+      }
+    }
+        
+    &:nth-child(2) {
+      .sidebar__dot {
+        color: #F7DB4F;
+      }
+    }
+
+    &:nth-child(3) {
+      .sidebar__dot {
+        color: #F26B38;
+      }
+    }
+
+    &:nth-child(4) {
+      .sidebar__dot {
+        color: #2F9599;
+      }
+    }
+
+    &:nth-child(5) {
+      .sidebar__dot {
+        color: #A7226E;
+      }
+    }
+  }
+  
+  &__projects {
+    padding-left: 3px;
+  }
+
+  &__project {
+    @include va('left');
+  }
+
+  &__dot {
+     margin-right: 10px;
+     font-size: 30px;
+  }
+
+  &__middle {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    border-bottom: 1px solid #cacaca;
+    padding-left: 10px;
+    cursor: pointer;
+
+    span {
+      color: #555;
       margin-right: 10px;
-
-        svg.hidden-projects {
-          transform: rotate(-90deg);
-        }
-      } 
-
-      h2 {
-        margin: 0;
-        color: #333;
-        font-size: 15px;
-        font-weight: bold;
-        padding-bottom: 20px;
+      
+      svg.hidden-projects {
+        transform: rotate(-90deg);
       }
+    } 
+
+    h2 {
+      margin: 0;
+      color: #555;
+      font-size: 15px;
+      font-weight: bold;
+      padding-bottom: 20px;
     }
   }
 
-    &__generic {
-      li {
+  &__generic {
+      
+    li {
+      margin-top: 10px;
+      padding-right: 10px;
+      padding-left: 12px;
+      list-style-type: none;
+      color: #555;
+      display: flex;
+      cursor: pointer;
+      line-height: 1.50;
+      font-size: 15px;
+
+      svg {
+        margin-right: 10px;
+        color: #555;
+        height: 18px;
+        width: 18px;
+      }
+
+      div:nth-child(1){
         padding: 10px 0 10px 10px;
-        list-style-type: none;
-        color: #333;
         display: flex;
-        cursor: pointer;
-        line-height: 1.50;
-        font-size: 15px;
-
-        span:first-of-type {
-          margin-right: 10px;
-
-          svg{
-            width: 18px;
-            height: 18px;
-            color: #555;
-          }
-        }
+        width: 100%;
       }
-    }
+      
+      &.active, &.hover {
+        font-weight: bold;
+        background-color: #fff;
+      }
+    } 
   }
+}
+
+
 
 
